@@ -10,7 +10,59 @@
 </head>
 
 <body>
+    <div class="container">
+        <h1>Garage:</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-info" onclick="retrieveData()">Show garages</button>
+                <div id="garage"></div>
+            </div>
+            <div class="col-md-2">
+                <button id="clearHistory" type="button" class="btn btn-danger">Clear</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-group">
+                    <hr>
+                    <h4>Create a garage:</h4>
+                    <br>
+                    <label for="garageName" class="sr-only">Garage name</label>
+                    <input type="text" class="form-control" id="garageName" placeholder="Garage name" />
+                    <!-- <label for="cars" class="sr-only">Cars</label> -->
+                    <!-- <input type="text" class="form-control" id="cars" placeholder="Cars" /> -->
+                    <br>
+                    <button type="button" class="btn btn-success" onclick="createGarage()">Create</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-group">
+                    <hr>
+                    <h4>Delete a garage:</h4>
+                    <br>
+                    <label for="garageId" class="sr-only">Garage ID</label>
+                    <input type="number" class="form-control" id="garageId" placeholder="ID of garage to delete" />
+                    <!-- <label for="cars" class="sr-only">Cars</label> -->
+                    <!-- <input type="text" class="form-control" id="cars" placeholder="Cars" /> -->
+                    <br>
+                    <button type="button" class="btn btn-danger" onclick="deleteGarage()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script src="./GarageController.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

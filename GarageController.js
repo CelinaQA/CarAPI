@@ -5,9 +5,9 @@ const inputGarageId = document.querySelector("#garageId");
 // const inputCars = document.querySelector("#cars");
 const clearHisButton = document.querySelector("#clearHistory");
 
-const printGarageToScreen = (name) => {
+const printGarageToScreen = (name, id) => {
     let garageInfo = document.createElement("p");
-    let text = document.createTextNode(`${name}`);
+    let text = document.createTextNode(`Garage ID: ${id},  Name: ${name}`);
     garageInfo.appendChild(text);
     garage.appendChild(garageInfo);
 }
@@ -21,12 +21,13 @@ const retrieveData = () => {
             } else {
                 console.log(`response is OK (200)`);
                 //json-ify it (which returns a promise)
+                garage.innerHTML = "";
                 response.json().then((infoGarage) => {
                     console.log(infoGarage);
                     console.log(infoGarage.cars); // key - return array(6)
                     for (let garage of infoGarage) {
                         console.log(garage.name);
-                        printGarageToScreen(garage.name);
+                        printGarageToScreen(garage.name, garage.id);
                         for (let cars in garage) {
 
                         }
@@ -58,7 +59,10 @@ const createGarage = () => {
             "Content-Type": "application/json"
         }
     })
-        .then(response => response.json())
+        .then(response => {
+            console.log(`${data.name} created`);
+            inputName.value = "";
+        })
         .catch(err => console.error(`Stopppppp! ${err}`));
 }
 
@@ -85,6 +89,9 @@ const deleteGarage = () => {
             "Content-Type": "application/json"
         }
     })
-        .then(response => console.log(`Garage ID:${data.id} deleted`))
+        .then(response => {
+            console.log(`Garage ID:${data.id} deleted`);
+            inputGarageId.value = "";
+        })
         .catch(err => console.error(`Stopppppp! ${err}`));
 }
